@@ -252,16 +252,19 @@
             currentButton.transform = CGAffineTransformMakeScale(self.configration.itemMaxScale, self.configration.itemMaxScale);
         }
         /// 颜色
-        [self.itemsArrayM enumerateObjectsUsingBlock:^(UIButton  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.selected = NO;
-            [obj setTitleColor:self.configration.normalItemColor forState:UIControlStateNormal];
-            obj.titleLabel.font = self.configration.itemFont;
-            if (idx == self.itemsArrayM.count - 1) {
-               currentButton.selected = YES;
-               [currentButton setTitleColor:self.configration.selectedItemColor forState:UIControlStateNormal];
-                currentButton.titleLabel.font = self.configration.selectedItemFont;
-            }
-        }];
+        if (!_configration.headerViewCouldScrollPage) {
+            [self.itemsArrayM enumerateObjectsUsingBlock:^(UIButton  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.selected = NO;
+                [obj setTitleColor:self.configration.normalItemColor forState:UIControlStateNormal];
+                obj.titleLabel.font = self.configration.itemFont;
+                if (idx == self.itemsArrayM.count - 1) {
+                    currentButton.selected = YES;
+                    [currentButton setTitleColor:self.configration.selectedItemColor forState:UIControlStateNormal];
+                    currentButton.titleLabel.font = self.configration.selectedItemFont;
+                }
+            }];
+        }
+        
         
         /// 线条
         if (self.configration.showScrollLine) {

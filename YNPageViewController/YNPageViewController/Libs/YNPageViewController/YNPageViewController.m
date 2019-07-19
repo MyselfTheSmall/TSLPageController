@@ -288,7 +288,9 @@
     [self.scrollMenuView adjustItemWithProgress:progress lastIndex:floor(offsetX) currentIndex:ceilf(offsetX)];
     
     if (floor(offsetX) == ceilf(offsetX)) {
-        [self.scrollMenuView adjustItemAnimate:YES];
+//        if (!_config.headerViewCouldScrollPage) {
+            [self.scrollMenuView adjustItemAnimate:YES];
+//        }
     }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(pageViewController:didScroll:progress:formIndex:toIndex:)]) {

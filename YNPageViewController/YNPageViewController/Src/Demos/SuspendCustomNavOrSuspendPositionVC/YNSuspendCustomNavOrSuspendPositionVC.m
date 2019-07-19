@@ -62,6 +62,7 @@
     configration.aligmentModeCenter = NO;
     configration.lineWidthEqualFontWidth = NO;
     configration.showBottomLine = YES;
+    configration.headerViewCouldScrollPage = NO;
     /// 设置悬浮停顿偏移量
     configration.suspenOffsetY = kYNPAGE_NAVHEIGHT;
     
@@ -76,7 +77,7 @@
     
     vc.headerView = autoScrollView;
     /// 指定默认选择index 页面
-    vc.pageIndex = 2;
+//    vc.pageIndex = 2;
     
     /// 作为自控制器加入到当前控制器
     [vc addSelfToParentViewController:self];
